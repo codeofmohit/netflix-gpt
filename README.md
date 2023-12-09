@@ -4,6 +4,6 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
 
 # Flow
 
--- boilerPlate setup using create-react-app
--- cleanedUp the boilerPlate code to kickStart the project
--- added tailwindCSS config
+- boilerPlate setup using create-react-app
+- cleanedUp the boilerPlate code to kickStart the project
+- added tailwindCSS config
