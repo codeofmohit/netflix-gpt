@@ -19,7 +19,7 @@ import Header from "./Header";
 
 import { validateFields } from "../utils/validate";
 
-import { LOGIN_BG } from "../constants/imgLinks";
+import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -64,6 +64,11 @@ const Login = () => {
         <h1 className="p-3 text-white text-3xl">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
+        <p className=" text-red-600 font-medium py-3 mx-3">
+          Desclaimer : This is just a dummy project to showcase my skills & for
+          learning purpose. This is not an actual streaming website, do not
+          enter your actual credential here.
+        </p>
         {/* name input on signUp only  */}
         {!isSignIn && (
           <input
