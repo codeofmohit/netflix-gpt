@@ -18,6 +18,7 @@ import { useRef, useState } from "react";
 import Header from "./Header";
 
 import { validateFields } from "../utils/validate";
+import { firebaseSignInUp } from "../utils/firebaseSignInUp";
 
 import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 
@@ -48,10 +49,19 @@ const Login = () => {
       isSignIn
     );
     setErrorMessage(validationMessage);
-    // all good form is ready to submit
-    if (validationMessage === true) {
-      console.log("form validated ready to submit!");
+    // if not validated return from here
+    if (validationMessage !== true) {
+      return;
     }
+    // execution of code will come here only if form is successfully validated
+    // sign in/up logic
+    firebaseSignInUp(
+      isSignIn,
+      name,
+      email.current.value,
+      password.current.value,
+      setErrorMessage
+    );
   };
 
   return (

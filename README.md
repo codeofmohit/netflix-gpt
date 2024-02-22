@@ -35,13 +35,13 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
     - rewrite all urls to index.html : no
     - set auto builds : no
 
-- Creating Sign UP user account in Firebase ❌
-  - in firebase docs find registering users
-  - password based account > web modular api
-  - getting get auth from a central place
-  - write sign in and sign up logic following firebase docs
-  - check if firebase is registering users
-  - play with details returned after sign in/up
+- Creating Sign UP user account in Firebase ✅
+  - in firebase docs find registering users ✅
+  - password based account > web modular api ✅
+  - getting get auth from a central place ✅
+  - write sign in and sign up logic following firebase docs ✅
+  - check if firebase is registering users ✅
+  - play with details returned after sign in/up ✅
 
 # Features
 
