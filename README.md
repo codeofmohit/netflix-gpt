@@ -18,6 +18,10 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
 - Login > Header(comman) ✅
 - Developing Header ✅
 - Login > Form(login/ignup) ✅
+- Form validation ✅
+- useRef Hook instead of local state for holding form states ✅
+- creating utility validate.js for validating form, validating for name, email, password ✅
+- showing error messages in UI as per validation ✅
 
 # Features
 
