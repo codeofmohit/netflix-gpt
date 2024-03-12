@@ -13,6 +13,7 @@ import Header from "./Header";
 import { validateFields } from "../utils/validate";
 
 import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
+import { USER_AVATAR, LOADER_BTN_CONTENT } from "../constants/constants";
 
 const Login = () => {
   const email = useRef();
@@ -51,8 +52,7 @@ const Login = () => {
     updateProfile(auth.currentUser, {
       displayName: name,
       //dummyphotoURL as of now
-      photoURL:
-        "https://ik.imagekit.io/3buj7rcwco/user_icon.png?updatedAt=1710247789248",
+      photoURL: USER_AVATAR,
     })
       .then(() => {
         // Profile updated!
@@ -82,7 +82,7 @@ const Login = () => {
     }
 
     // adding loader for signin up/in stage
-    signInUpBtn.current.innerHTML = `<div class="flex justify-center items-center"><span>signing in/up ...  </span> &nbsp; &nbsp;<div class="loader"></div></div>`;
+    signInUpBtn.current.innerHTML = LOADER_BTN_CONTENT;
 
     // sign in/up via firebase
     if (isSignIn) {
