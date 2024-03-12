@@ -1,36 +1,37 @@
-/*
+import { useRef, useState, useMemo } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-- Brief design doc (dev only)
-- Login : a protected route component 🚀
-    - Header which will have logo ✅
-    - background cover image ✅
-    - sign in + sign up form ✅
-    - validation of form fields, using validate.js utility function ✅
-      - showing error message as per validation ✅
-      - validation for name, email, password ✅
-      - using useRef instead for local state variable for input field's values ✅
-        -- email and password : useRef ✅
-        -- name : local state using useState ✅
+import { addUser } from "../store/slices/userSlice";
+import { auth } from "../utils/firebaseConfig";
 
-*/
-
-import { useRef, useState } from "react";
 import Header from "./Header";
-
 import { validateFields } from "../utils/validate";
-import { firebaseSignInUp } from "../utils/firebaseSignInUp";
 
 import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 
 const Login = () => {
-  const [name, setName] = useState("");
-  const [errorMessage, setErrorMessage] = useState(null);
-
   const email = useRef();
   const password = useRef();
+  const [name, setName] = useState("");
 
   const [isSignIn, setIsSignIn] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // memoizing header
+  const memoizedHeader = useMemo(() => {
+    return <Header />;
+  }, []);
+
+  // toggler to switch between sign in and sign up functionality
   const signInUpToggler = () => {
     setIsSignIn(!isSignIn);
     // clearning form fields on toggle
@@ -40,6 +41,32 @@ const Login = () => {
     setErrorMessage(null);
   };
 
+  // adding user to redux store
+  const addUserToReduxStore = (user) => {
+    const { accessToken, displayName, email, uid, photoURL } = user;
+    const userInfo = { accessToken, displayName, email, uid, photoURL };
+    dispatch(addUser(userInfo));
+    navigate("/browse");
+  };
+
+  const updateUserWithName = (user) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      //dummyphotoURL as of now
+      photoURL: "https://avatars.githubusercontent.com/u/62004432?v=4",
+    })
+      .then(() => {
+        // Profile updated!
+        console.log("Profile updated with name & photo url...");
+        // once profile updated with name then add it to the redux store
+        addUserToReduxStore(user);
+      })
+      .catch((error) => {
+        console.log("Error in updating the profile" + error);
+      });
+  };
+
+  // handing submission of the form based on either sign in or sign up via firebase
   const submitHandler = (e) => {
     e.preventDefault();
     const validationMessage = validateFields(
@@ -49,24 +76,57 @@ const Login = () => {
       isSignIn
     );
     setErrorMessage(validationMessage);
+
     // if not validated return from here
     if (validationMessage !== true) {
       return;
     }
-    // execution of code will come here only if form is successfully validated
-    // sign in/up logic
-    firebaseSignInUp(
-      isSignIn,
-      name,
-      email.current.value,
-      password.current.value,
-      setErrorMessage
-    );
+
+    // sign in/up via firebase
+    if (isSignIn) {
+      // Signing users in
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // storing user in redux store via action addUser
+          addUserToReduxStore(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - sign in err - " + errorMessage);
+        });
+    } else {
+      // Registering users up (sign-up)
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          // update user with name and then storing user in redux [taken care in updateUserWithName]
+          updateUserWithName(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - sign UP err - " + errorMessage);
+        });
+    }
   };
 
+  // returned JSX
   return (
     <div>
-      <Header />
+      {/* memoized version of header to prevent not needed renders  */}
+      {memoizedHeader}
       <img src={LOGIN_BG} alt="background" />
       {/* sing in + sign up form  */}
       <form className="flex flex-col mx-auto p-8 m-4 rounded bg-[rgba(0,0,0,0.75)] top-[20%] left-[50%] translate-x-[-50%] absolute w-[450px]">
@@ -86,9 +146,7 @@ const Login = () => {
             type="text"
             placeholder="name"
             value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
+            onChange={(e) => setName(e.target.value)}
           />
         )}
         {/* email input  */}
