@@ -5,7 +5,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import { addUser } from "../store/slices/userSlice";
 import { auth } from "../utils/firebaseConfig";
@@ -18,13 +17,13 @@ import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 const Login = () => {
   const email = useRef();
   const password = useRef();
+  const signInUpBtn = useRef();
   const [name, setName] = useState("");
 
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // memoizing header
   const memoizedHeader = useMemo(() => {
@@ -46,14 +45,14 @@ const Login = () => {
     const { accessToken, displayName, email, uid, photoURL } = user;
     const userInfo = { accessToken, displayName, email, uid, photoURL };
     dispatch(addUser(userInfo));
-    navigate("/browse");
   };
 
   const updateUserWithName = (user) => {
     updateProfile(auth.currentUser, {
       displayName: name,
       //dummyphotoURL as of now
-      photoURL: "https://avatars.githubusercontent.com/u/62004432?v=4",
+      photoURL:
+        "https://ik.imagekit.io/3buj7rcwco/user_icon.png?updatedAt=1710247789248",
     })
       .then(() => {
         // Profile updated!
@@ -81,6 +80,9 @@ const Login = () => {
     if (validationMessage !== true) {
       return;
     }
+
+    // adding loader for signin up/in stage
+    signInUpBtn.current.innerHTML = `<div class="flex justify-center items-center"><span>signing in/up ...  </span> &nbsp; &nbsp;<div class="loader"></div></div>`;
 
     // sign in/up via firebase
     if (isSignIn) {
@@ -171,6 +173,7 @@ const Login = () => {
         <button
           className="p-3 m-2 bg-red-600 text-white font-bold rounded-md"
           onClick={submitHandler}
+          ref={signInUpBtn}
         >
           {isSignIn ? "Sign In" : "Sign Up"}
         </button>

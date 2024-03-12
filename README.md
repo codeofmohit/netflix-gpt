@@ -44,7 +44,8 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - check if firebase is registering users ✅
   - play with details returned after sign in/up ✅
 
-- Setting up redux tool kit
+- Setting up redux tool kit + Sign in/up/out functionlity via Firebase Auth ✅
+
   - revise redux tool kit first ✅
   - once the user in sign in / up, firebase returns a user object with access token ✅
   - we will store that user into the redux store, to keep track of session ✅
@@ -58,6 +59,9 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - once user logs in / or sign up then only show & actigvate sign out button/functionlity in header ✅
   - update profile via update api, once sign in/up with userName ✅
   - display the user name + photo URL(s) [dummy as of now], in header once logged in ✅
+  - Fixed the bug > made login and browse protected via adding onAuthChange api from firebase, and navigation is handled by it only ✅
+  - Fixed another bug, added 2 users, 1 from redux store, 1 from firebase auth, to fix name collapsing issue ✅
+  - adding loader while signing up and siginig in for better and smooth UX ✅
 
 # Features
 
