@@ -21,7 +21,7 @@ const Header = () => {
 
   // onAuthStateChanged : using it to handle redirections when sign in/up/out + making routes protected
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // signed in or up
         setUserState(user);
@@ -32,6 +32,10 @@ const Header = () => {
         navigate("/login");
       }
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   // function to handle signout
