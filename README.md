@@ -45,20 +45,19 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - play with details returned after sign in/up ✅
 
 - Setting up redux tool kit
-  - revise redux tool kit first
-  - once the user in sign in / up, firebase returns a user object with access token
-  - we will store that user into the redux store, to keep track of session
-    - 2 actions, in user slice, adduser, and removeuser
+  - revise redux tool kit first ✅
+  - once the user in sign in / up, firebase returns a user object with access token ✅
+  - we will store that user into the redux store, to keep track of session ✅
+    - 2 actions, in user slice, adduser, and removeuser ✅
   - then we will navigate the user to browse page
-  - using firebase native onAuthChange API to handle and manage auth state changes
-    - do it on the root level in useEffect [], so that when first time we load root level component this onAuthChange API (kind of event listener), would be set up.
-  - when user sign up/sign in : adduser, when sign out : removeuser
-  - after sign in/up : navigate user to browser page
-  - after sign out : navigate user to home page /
-  - useNavigate() hook of react router dom
-  - update profile via update api, once sign in/up with userName
-  - display the user name, in header once logged in
-  - only when logged in then signOut button should show
+  - when user sign up/sign in : adduser, when sign out : removeuser ✅
+  - after sign in/up : navigate user to browser page ✅
+  - after sign out : navigate user to login page / ✅
+  - useNavigate() hook of react router dom ✅
+  - once the user logged in then only, browse page will be shown, otherwise make browse page protected ✅
+  - once user logs in / or sign up then only show & actigvate sign out button/functionlity in header ✅
+  - update profile via update api, once sign in/up with userName ✅
+  - display the user name + photo URL(s) [dummy as of now], in header once logged in ✅
 
 # Features
 
