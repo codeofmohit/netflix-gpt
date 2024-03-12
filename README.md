@@ -63,6 +63,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - Fixed another bug, added 2 users, 1 from redux store, 1 from firebase auth, to fix name collapsing issue ✅
   - adding loader while signing up and siginig in for better and smooth UX ✅
   - unsubscribed the onAuthChange subscription ✅
+  - constant file added for dummy strings and constant data ✅
 
 # Features
 
