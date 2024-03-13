@@ -65,7 +65,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - unsubscribed the onAuthChange subscription ✅
   - constant file added for dummy strings and constant data ✅
 
-- Creating Browse Page ❌
+- Creating Browse Page ✅
 
   - registered and logged in on TMDB to use their API's [got access token and api key] ✅
   - Copy NOW_PLAYING_MOVIES_API_OPTIONS into your constant file ✅
@@ -114,7 +114,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - Make 2 components, MovieList & MovieCard ✅
   - pass movie list title from secondary container to movielist ✅
   - looppver movieCards into movieLIst ✅
-  - use css to make it look like fateflix ❌
+  - use css to make it look like fateflix ✅
   - create differetnt hooks for getting different categories, i.e popular, trending, etc ✅
   - call those hooks also to browse page only > done via single hook only ✅
   - accordingly different lists would be there ✅
