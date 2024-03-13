@@ -33,6 +33,7 @@ const Header = () => {
       }
     });
 
+    // unsubscribing from onAuthChanged which behaves as an event listener to clean up
     return () => {
       unsubscribe();
     };
@@ -53,23 +54,14 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute flex justify-around items-center w-5/6">
+    <div className="absolute flex justify-between items-center w-full bg-gradient-to-r from-black to-transparent z-20">
       <div className="logo">
         <Link to="/login">
-          <img
-            className=" p-6 ml-16 bg-gradient-to-b from-transparent to-black w-64"
-            src={LOGO}
-            alt="logo"
-          />
+          <img className="p-6 ml-6 w-48" src={LOGO} alt="logo" />
         </Link>
       </div>
       <div className="navbar ">
         <ul className="flex justify-around items-center">
-          {user && (
-            <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
-              <Link to="/browse">browse</Link>
-            </li>
-          )}
           {user && (
             <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
               <button

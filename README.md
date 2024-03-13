@@ -65,59 +65,59 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - unsubscribed the onAuthChange subscription ✅
   - constant file added for dummy strings and constant data ✅
 
-- Creating Browse Page
+- Creating Browse Page ❌
 
   - registered and logged in on TMDB to use their API's [got access token and api key] ✅
-  - Copy NOW_PLAYING_MOVIES_API_OPTIONS into your constant file
-  - in Browse page make the API call to get Now playing movies
-  - creating a moviesSlice, and storing all our data into the moviesSlice
-    - movieSlice will have initialState as:
-      - nowPlayingMovies
-      - trailerVideo
-  - initailly do all these stuff -> fetch data from tmdb and then store it into redux in browser page
-  - then create a custom hook to do so to keep browse component clean
-  - create useNowPLayingMovies hook, in hooks folder
-  - create browse page UI
-  - plannning how to create the UI
-  - Browse page UI (2 parts)
-    - Maincontainer
-      - Video BG of Movie
-      - Video title & info
-    - SecondaryContainer
-      - MoviesCategories\*n
-        - MovieCards\*n
-  - as planned make 2 components, MainContainer + SecondaryContainer
-  - MainContainer
-    - fetch movies using useSelector from store
-    - create 2 components
-      - VideoTitle
-      - VideoBackground
-  - early retrurn is movies are not loaded
-  - else first movie will be main movie for which title and video will be shown
-  - destructure relevant info from object and passed it to videoTitle component as props
-  - Now for videoBackground, nowplaying movies api won't have the trailer
-  - We will use another API from tmdb, video api, which will take movie id and give video for that
-    - pass movie id as a prop to video BG comp
-  - in VideoBG comp make api call with movie id to get movie videos
-  - out of all the clips returned, use type="trailer" as bg
-  - in trailer is not there use any first video as bg (write logic)
+  - Copy NOW_PLAYING_MOVIES_API_OPTIONS into your constant file ✅
+  - in Browse page make the API call to get Now playing movies ✅
+  - creating a moviesSlice, and storing all our data into the moviesSlice ✅
+    - movieSlice will have initialState as: ✅
+      - nowPlayingMovies ✅
+      - trailerVideo ✅
+  - initailly do all these stuff -> fetch data from tmdb and then store it into redux in browser page ✅
+  - then create a custom hook to do so to keep browse component clean ✅
+  - create useNowPLayingMovies hook, in hooks folder ✅
+  - create browse page UI ✅
+  - plannning how to create the UI ✅
+  - Browse page UI (2 parts) ✅
+    - Maincontainer ✅
+      - Video BG of Movie ✅
+      - Video title & info ✅
+    - SecondaryContainer ✅
+      - MoviesCategories\*n ✅
+        - MovieCards\*n ✅
+  - as planned make 2 components, MainContainer + SecondaryContainer ✅
+  - MainContainer ✅
+    - fetch movies using useSelector from store ✅
+    - create 2 components ✅
+      - VideoTitle ✅
+      - VideoBackground ✅
+  - early retrurn is movies are not loaded ✅
+  - else first movie will be main movie for which title and video will be shown ✅
+  - destructure relevant info from object and passed it to videoTitle component as props ✅
+  - Now for videoBackground, nowplaying movies api won't have the trailer ✅
+  - We will use another API from tmdb, video api, which will take movie id and give video for that ✅
+    - pass movie id as a prop to video BG comp ✅
+  - in VideoBG comp make api call with movie id to get movie videos ✅
+  - out of all the clips returned, use type="trailer" as bg ✅
+  - in trailer is not there use any first video as bg (write logic) ✅
   - trailer object contains youtube id, from youtube take the embedded code , handle the id dynamically
-  - for storing trailer id, make use of redux not local state, put entire object into redux, and use from there only
-  - make useMovieTrailer, to fetch trailer and store it in redux, make a custom hook for it, to make component cleaner
-  - css to make video bg and title look like how fateflix does
+  - for storing trailer id, make use of redux not local state, put entire object into redux, and use from there only ✅
+  - make useMovieTrailer, to fetch trailer and store it in redux, make a custom hook for it, to make component cleaner ✅
+  - css to make video bg and title look like how fateflix does ✅
   - building secondary container
   - planning building secondary conatiner
     - MovieList - Popular
-      moviescards\*n
+      - moviescards\*n
     - MovieList - nowPLaying
     - MovieList - Horror
-  - Make 2 components, MovieList & MovieCard
-  - pass movie list title from secondary container to movielist
-  - looppver movieCards into movieLIst
-  - use css to make it look like fateflix
-  - create differetnt hooks for getting different categories, i.e popular, trending, etc
-  - call those hooks also to browse page only
-  - accordingly different lists would be there
+  - Make 2 components, MovieList & MovieCard ✅
+  - pass movie list title from secondary container to movielist ✅
+  - looppver movieCards into movieLIst ✅
+  - use css to make it look like fateflix ❌
+  - create differetnt hooks for getting different categories, i.e popular, trending, etc ✅
+  - call those hooks also to browse page only > done via single hook only ✅
+  - accordingly different lists would be there ✅
 
 # Features
 
