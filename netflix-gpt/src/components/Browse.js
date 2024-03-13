@@ -1,12 +1,18 @@
 import Header from "./Header";
-import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
+import useGetMoviesLists from "../customHooks/useGetMoviesLists";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
+  // hooks for fetching movie lists from api's and storing into redux store
+  useGetMoviesLists();
+
   return (
-    <>
+    <div>
       <Header />
-      <img src={LOGIN_BG} alt="background" />
-    </>
+      <MainContainer />
+      <SecondaryContainer />
+    </div>
   );
 };
 export default Browse;

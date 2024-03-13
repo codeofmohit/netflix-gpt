@@ -19,3 +19,8 @@
     transform: rotate(360deg);
   }
 }
+
+.movie-lists-container .movieList:nth-child(1) {
+  z-index: 15;
+  position: relative;
+}
