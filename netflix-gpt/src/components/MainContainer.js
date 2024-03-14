@@ -10,7 +10,7 @@ const MainContainer = () => {
   if (!movies) return;
 
   // fisrt movie === hero movie
-  const heroMovie = movies[5];
+  const heroMovie = movies[0];
   const { original_title, overview, id } = heroMovie;
 
   return (
