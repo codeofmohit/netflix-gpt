@@ -186,7 +186,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - append REACT_APP_API_KEY_NAME to keys to append it, no strings directly content ✅
   - when need to use it use process.env.REACT_APP_API_KEY_NAME ✅
   - add .env file to gitIgnore ✅
-  - store all firebase config also in env
+  - store all firebase config also in env ✅
 
 - Memoization ❌
 
@@ -215,7 +215,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - add buttons for scroll
   - add google auth also
   - on click on movie cards take to youtube trailer pages
-  - on click of movie card show netflix like bigger card with more details
+  - on click of movie card show netflix like bigger card with more details [optinal]
 
 # Features
 
