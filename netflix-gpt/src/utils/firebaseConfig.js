@@ -9,13 +9,13 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBQnk5ivtdtCxANY8plzgicj1EjghihU0I",
-  authDomain: "fateflix-codeofmohit.firebaseapp.com",
-  projectId: "fateflix-codeofmohit",
-  storageBucket: "fateflix-codeofmohit.appspot.com",
-  messagingSenderId: "716166763888",
-  appId: "1:716166763888:web:3bbb7871d051337c3e2bb5",
-  measurementId: "G-Y68HXP68EH",
+  apiKey: process.env.REACT_APP_FB_apiKey,
+  authDomain: process.env.REACT_APP_FB_authDomain,
+  projectId: process.env.REACT_APP_FB_projectId,
+  storageBucket: process.env.REACT_APP_FB_storageBucket,
+  messagingSenderId: process.env.REACT_APP_FB_messagingSenderId,
+  appId: process.env.REACT_APP_FB_appId,
+  measurementId: process.env.REACT_APP_FB_measurementId,
 };
 
 // Initialize Firebase
