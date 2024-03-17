@@ -4,9 +4,15 @@ const MovieCard = ({ movie }) => {
   const { poster_path, original_title } = movie;
   const moviePoster = MOVIE_POSTER_URL + poster_path;
 
+  if (!poster_path) {
+    return;
+  }
+
   return (
     <>
-      <img className="rounded m-3" src={moviePoster} alt={original_title} />
+      {moviePoster && (
+        <img className="rounded m-3" src={moviePoster} alt={original_title} />
+      )}
     </>
   );
 };

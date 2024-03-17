@@ -12,7 +12,6 @@ const getGptSuggestedMoviesFromTmdb = (gptSuggestions, dispatch) => {
     const moviePromiseArr = gptSuggestions.map((movie) => movieSearch(movie));
     const movieArr = Promise.all(moviePromiseArr);
     movieArr.then((data) => {
-      console.log(data);
       dispatch(addSearchedMoviesResults(data));
     });
   };

@@ -173,19 +173,19 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - search results which are coming from open ai, after entering query store those also in redux store ✅
   - movies extraction logic can be extracted into hooks ✅
 
-- Chat GPT Search result UI ❌
+- Chat GPT Search result UI ✅
 
-  - GetMoviesSuggestions
-    - in this compoennt, get movies name, and movies from redux store
-    - use the same already used > movieList component for display movie cards
-    - map over movie names and multiple movieList components with movies
+  - GetMoviesSuggestions ✅
+    - in this compoennt, get movies name, and movies from redux store ✅
+    - use the same already used > movieList component for display movie cards ✅
+    - map over movie names and multiple movieList components with movies ✅
 
-- Securing API Keys ❌
+- Securing API Keys ✅
 
-  - create .env file in root
-  - append REACT_APP_API_KEY_NAME to keys to append it, no strings directly content
-  - when need to use it use process.env.REACT_APP_API_KEY_NAME
-  - add .env file to gitIgnore
+  - create .env file in root ✅
+  - append REACT_APP_API_KEY_NAME to keys to append it, no strings directly content ✅
+  - when need to use it use process.env.REACT_APP_API_KEY_NAME ✅
+  - add .env file to gitIgnore ✅
 
 - Memoization ❌
 
@@ -206,7 +206,11 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
 
 - Bug fixes + making the project stable as much as possible + additional features ❌
   - plan once the above points are done ...
-  - show hide password option
+  - show hide password option on login form
+  - shimmer / login text / loader whenever loading is happening
+  - on click on homepage video is stopping check what is the issue
+  - whever calling tmdb api(s) store hardcode that data, as TMDB is not working
+  - 1 hour sit and find tmdb alternative
 
 # Features
 
