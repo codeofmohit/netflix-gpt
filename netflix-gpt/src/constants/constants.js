@@ -17,6 +17,9 @@ export const API_VIDEOS_FROM_ID = "https://api.themoviedb.org/3/movie/";
 
 export const MOVIE_POSTER_URL = "https://image.tmdb.org/t/p/w185";
 
+export const TMDB_MOIVE_SEARCH =
+  "https://api.themoviedb.org/3/search/movie?query=";
+
 export const TMDB_API_OPTIONS = {
   method: "GET",
   headers: {
@@ -31,3 +34,8 @@ export const multiLangOptions = [
   { type: "hindi", value: "hindi" },
   { type: "spanish", value: "spanish" },
 ];
+
+export const gptQueryGenerator = (searchString) => {
+  const query = `act as a movie recommendation system and recommend me movies names for this specfic query : ${searchString} , only give me 5 comma seprated movie names as result, For example for query : indian old is gold movies, result : gadar,sholey,don,golmaal,kabhi khushi kabhi gam. Note: i will need to create an array of the movie names which you will give me so always give me comma seprated movie names as result, do not include any other text or empty spaces before or after comma`;
+  return query;
+};

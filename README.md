@@ -144,35 +144,34 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
     - before moving ahead clean up all the componentnts ✅
     - bug fixes regarding multilang feature ✅
 
-- Starting GptSearch Feature ❌
+- Starting GptSearch Feature ✅
 
-  - register on open ai
-  - from platform.openai
-  - get your api key
-  - keep your key secret [paid api]
-  - install open ai npm library, go through its docs, readme on github
-  - make seprate util file to initialse open ai, export it
+  - register on open ai ✅
+  - from platform.openai ✅
+  - get your api key ✅
+  - keep your key secret [paid api] ✅
+  - install open ai npm library, go through its docs, readme on github ✅
+  - make seprate util file to initialse open ai, export it ✅
   - on click of search btn > submitHandler
-    - preventDefault behaviour
-    - import open ai
+    - preventDefault behaviour ✅
+    - import open ai ✅
     - call the open ai function with the search term
-    - dangerously allow error by openAi set it to allowed
-    - be specific about passing the query, query , form one,
+    - dangerously allow error by openAi set it to allowed ✅
+    - be specific about passing the query, query , form one,✅
       - query : act as a movie recommendation system and recommend some movies to me for the specific query, query : {dynamic input} , give me comma separated values as result in an array format contains 5 movie titles only, such as for query : indian old is gold movies, result : [gadar, sholey, don, golmaal, kabhi khushi kabhi gam]
-      - Flow
-        - after query like this, openAI will give result for 5 movies
-        - search these 5 titles using TMDB seach movie api's
-        - movie details will comes to us, then simply display those movies to user in UI
-  - in case open AI gpt does not give result, handle that error gracefully
-  - create array of movies from result
-  - now for all 5 movie names, we must call TMDB's search api, 5 movies - 5 api calls, create a utility function for the same
-  - using map call that utility funciton -> func will be called 5 times -> won't give result -> async code, will return unresolved promises array
-  - use promise.all to resolve promise and get the results
-  - multiple movies will come as result
-  - store those movies in redux store, in gpt slice itself
-  - search results which are coming from open ai, after entering query store those also in redux store
-    -- pass as an object : movieName , movieResult, destructure in reducer and store in store
-  - movies extraction logic can be extracted into hooks
+      - Flow ✅
+        - after query like this, openAI will give result for 5 movies ✅
+        - search these 5 titles using TMDB seach movie api's ✅
+        - movie details will comes to us, then simply display those movies to user in UI ✅
+  - in case open AI gpt does not give result, handle that error gracefully ✅
+  - create array of movies from result✅
+  - now for all 5 movie names, we must call TMDB's search api, 5 movies - 5 api calls, create a utility function for the same ✅
+  - using map call that utility funciton -> func will be called 5 times -> won't give result -> async code, will return unresolved promises array ✅
+  - use promise.all to resolve promise and get the results ✅
+  - multiple movies will come as result ✅
+  - store those movies in redux store, in gpt slice itself ✅
+  - search results which are coming from open ai, after entering query store those also in redux store ✅
+  - movies extraction logic can be extracted into hooks ✅
 
 - Chat GPT Search result UI ❌
 
@@ -205,8 +204,9 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
       - md/lg : for desktop
       - by default : whatever styling is there would be for mobile
 
-- Bug fixes + making the project stable as much as possible ❌
+- Bug fixes + making the project stable as much as possible + additional features ❌
   - plan once the above points are done ...
+  - show hide password option
 
 # Features
 
