@@ -5,12 +5,18 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
 
 import { removeUser } from "../store/slices/userSlice";
+import { gptSearchBtnToggler } from "../store/slices/gptSlice";
+import { addSelectedLang } from "../store/slices/multiLangSlice";
 import LOGO from "../constants/codeofmohit_logo.png";
 import { useEffect, useState } from "react";
+import { multiLangOptions } from "../constants/constants";
 
 const Header = () => {
   // user from redux store (will use for using properties), initial value of state
   const userFromRedux = useSelector((state) => state.user);
+  const isGptSearchBtnClicked = useSelector(
+    (state) => state.gptSearch?.isClicked
+  );
 
   const [userState, setUserState] = useState(userFromRedux);
   const dispatch = useDispatch();
@@ -53,6 +59,15 @@ const Header = () => {
       });
   };
 
+  // function to handle gptSearch
+  const gptSearchBtnHandler = () => {
+    dispatch(gptSearchBtnToggler());
+  };
+
+  const multiLangSelectHandler = (e) => {
+    dispatch(addSelectedLang(e.target.value));
+  };
+
   return (
     <div className="absolute flex justify-between items-center w-full bg-gradient-to-r from-black to-transparent z-20">
       <div className="logo">
@@ -63,21 +78,48 @@ const Header = () => {
       <div className="navbar ">
         <ul className="flex justify-around items-center">
           {user && (
-            <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
-              <button
-                className="flex justify-center items-center"
-                to="/"
-                onClick={signOutHandler}
-              >
-                <img
-                  className="rounded h-8 w-8"
-                  src={userState?.photoURL}
-                  alt="profile"
-                />
-                <p>&nbsp;&nbsp;{userState?.displayName}&nbsp;&nbsp;</p>
-                <span>(Sign Out)</span>
-              </button>
-            </li>
+            <>
+              {!isGptSearchBtnClicked && (
+                <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-black rounded">
+                  <select onChange={multiLangSelectHandler}>
+                    {multiLangOptions?.map((each) => {
+                      return (
+                        <option key={each.type} value={each.type}>
+                          {each.value}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </li>
+              )}
+
+              <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
+                <button
+                  className="flex justify-center items-center"
+                  to="/"
+                  onClick={gptSearchBtnHandler}
+                >
+                  <span>
+                    {isGptSearchBtnClicked ? "GPT Search" : "Homepage"}
+                  </span>
+                </button>
+              </li>
+              <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
+                <button
+                  className="flex justify-center items-center"
+                  to="/"
+                  onClick={signOutHandler}
+                >
+                  <img
+                    className="rounded h-8 w-8"
+                    src={userState?.photoURL}
+                    alt="profile"
+                  />
+                  <p>&nbsp;&nbsp;{userState?.displayName}&nbsp;&nbsp;</p>
+                  <span>(Sign Out)</span>
+                </button>
+              </li>
+            </>
           )}
         </ul>
       </div>

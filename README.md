@@ -105,12 +105,12 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - for storing trailer id, make use of redux not local state, put entire object into redux, and use from there only ✅
   - make useMovieTrailer, to fetch trailer and store it in redux, make a custom hook for it, to make component cleaner ✅
   - css to make video bg and title look like how fateflix does ✅
-  - building secondary container
-  - planning building secondary conatiner
-    - MovieList - Popular
-      - moviescards\*n
-    - MovieList - nowPLaying
-    - MovieList - Horror
+  - building secondary container ✅
+  - planning building secondary conatiner ✅
+    - MovieList - Popular ✅
+      - moviescards\*n ✅
+    - MovieList - nowPLaying ✅
+    - MovieList - Horror ✅
   - Make 2 components, MovieList & MovieCard ✅
   - pass movie list title from secondary container to movielist ✅
   - looppver movieCards into movieLIst ✅
@@ -119,72 +119,74 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - call those hooks also to browse page only > done via single hook only ✅
   - accordingly different lists would be there ✅
 
-- Creating GptSearchPage component Feature ❌
+- Creating GptSearchPage component Feature ✅
 
-  - in header > gpt search btn (only for signned in users)
-  - on click of the btn > GptSearchPage component
-  - GptSearchPage component > in browse component > accessble only on header btn click (build toggle functionilty)
-  - to make the toggle functionlity work, store the reducer to toggle into redux store, create gptSlice
-  - create action toggleGptSearchView
+  - in header > gpt search btn (only for signned in users) ✅
+  - on click of the btn > GptSearchPage component ✅
+  - GptSearchPage component > in browse component > accessble only on header btn click (build toggle functionilty) ✅
+  - to make the toggle functionlity work, store the reducer to toggle into redux store, create gptSlice in slices folder ✅
+  - create action toggleGptSearchView ✅
   - GPT Search component planning
-    - bg image same as of /login screen
-    - GptSearchBar
-      - form > search bar + btn
-        - note : onSubmit > preventDefault behaviour
-    - GptMoviesSuggestions
-  - put bg image in constants if already not coming
+    - bg image same as of /login screen ✅
+    - GptSearchBar ✅
+      - form > search bar + btn ✅
+        - note : onSubmit > preventDefault behaviour ✅
+    - GptMoviesSuggestions ✅
+  - put bg image in constants if already not coming ✅
   - translation into other languages using a constant file
-    - create a constant file lang, store object of 2 languages hindi, english in the contant file, each word on your app/site must be in these languages hardcoaded here
-    - then on header give an option to toggle from select options
-    - on select handler change the language as should be coming dynamically from contant file
-    - even options in the select option also should come from constant file
-    - do it only in the GptSearchComponent
-    - when clicking on GptSearchComponent should toggle name from GptSearch to homepage
-    - in homepage option for language change should not come
+    - create a constant file lang, store object of 2 languages hindi, english in the contant file, each word on your app/site must be in these languages hardcoaded here ✅
+    - then on header give an option to toggle from select options ✅
+    - on select handler change the language as should be coming dynamically from contant file ✅
+    - even options in the select option also should come from constant file ✅
+    - do it only in the GptSearchComponent ✅
+    - when clicking on GptSearchComponent should toggle name from GptSearch to homepage ✅
+    - in homepage option for language change should not come ✅
+    - before moving ahead clean up all the componentnts ✅
+    - bug fixes regarding multilang feature ✅
 
-- Starting GptSearch Feature ❌
+- Starting GptSearch Feature ✅
 
-  - register on open ai
-  - from platform.openai
-  - get your api key
-  - keep your key secret [paid api]
-  - install open ai npm library, go through its docs, readme on github
-  - make seprate util file to initialse open ai, export it
+  - register on open ai ✅
+  - from platform.openai ✅
+  - get your api key ✅
+  - keep your key secret [paid api] ✅
+  - install open ai npm library, go through its docs, readme on github ✅
+  - make seprate util file to initialse open ai, export it ✅
   - on click of search btn > submitHandler
-    - preventDefault behaviour
-    - import open ai
+    - preventDefault behaviour ✅
+    - import open ai ✅
     - call the open ai function with the search term
-    - dangerously allow error by openAi set it to allowed
-    - be specific about passing the query, query , form one,
+    - dangerously allow error by openAi set it to allowed ✅
+    - be specific about passing the query, query , form one,✅
       - query : act as a movie recommendation system and recommend some movies to me for the specific query, query : {dynamic input} , give me comma separated values as result in an array format contains 5 movie titles only, such as for query : indian old is gold movies, result : [gadar, sholey, don, golmaal, kabhi khushi kabhi gam]
-      - Flow
-        - after query like this, openAI will give result for 5 movies
-        - search these 5 titles using TMDB seach movie api's
-        - movie details will comes to us, then simply display those movies to user in UI
-  - in case open AI gpt does not give result, handle that error gracefully
-  - create array of movies from result
-  - now for all 5 movie names, we must call TMDB's search api, 5 movies - 5 api calls, create a utility function for the same
-  - using map call that utility funciton -> func will be called 5 times -> won't give result -> async code, will return unresolved promises array
-  - use promise.all to resolve promise and get the results
-  - multiple movies will come as result
-  - store those movies in redux store, in gpt slice itself
-  - search results which are coming from open ai, after entering query store those also in redux store
-    -- pass as an object : movieName , movieResult, destructure in reducer and store in store
-  - movies extraction logic can be extracted into hooks
+      - Flow ✅
+        - after query like this, openAI will give result for 5 movies ✅
+        - search these 5 titles using TMDB seach movie api's ✅
+        - movie details will comes to us, then simply display those movies to user in UI ✅
+  - in case open AI gpt does not give result, handle that error gracefully ✅
+  - create array of movies from result✅
+  - now for all 5 movie names, we must call TMDB's search api, 5 movies - 5 api calls, create a utility function for the same ✅
+  - using map call that utility funciton -> func will be called 5 times -> won't give result -> async code, will return unresolved promises array ✅
+  - use promise.all to resolve promise and get the results ✅
+  - multiple movies will come as result ✅
+  - store those movies in redux store, in gpt slice itself ✅
+  - search results which are coming from open ai, after entering query store those also in redux store ✅
+  - movies extraction logic can be extracted into hooks ✅
 
-- Chat GPT Search result UI ❌
+- Chat GPT Search result UI ✅
 
-  - GetMoviesSuggestions
-    - in this compoennt, get movies name, and movies from redux store
-    - use the same already used > movieList component for display movie cards
-    - map over movie names and multiple movieList components with movies
+  - GetMoviesSuggestions ✅
+    - in this compoennt, get movies name, and movies from redux store ✅
+    - use the same already used > movieList component for display movie cards ✅
+    - map over movie names and multiple movieList components with movies ✅
 
-- Securing API Keys ❌
+- Securing API Keys ✅
 
-  - create .env file in root
-  - append REACT_APP_API_KEY_NAME to keys to append it, no strings directly content
-  - when need to use it use process.env.REACT_APP_API_KEY_NAME
-  - add .env file to gitIgnore
+  - create .env file in root ✅
+  - append REACT_APP_API_KEY_NAME to keys to append it, no strings directly content ✅
+  - when need to use it use process.env.REACT_APP_API_KEY_NAME ✅
+  - add .env file to gitIgnore ✅
+  - store all firebase config also in env ✅
 
 - Memoization ❌
 
@@ -195,12 +197,25 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - simply check if store has it, don't call fetch function in useEffect
 
 - Make the site mobile responsive ❌
+
   - using tailwind
     - default sm:(tablet min-width:640px) md:(desktop min-width:768px)
     - mobile first approch,
       - sm : for tablets
       - md/lg : for desktop
       - by default : whatever styling is there would be for mobile
+
+- Bug fixes + making the project stable as much as possible + additional features ❌
+  - plan once the above points are done ...
+  - show hide password option on login form
+  - shimmer / login text / loader whenever loading is happening
+  - on click on homepage video is stopping check what is the issue
+  - whever calling tmdb api(s) store hardcode that data, as TMDB is not working
+  - work on the stability of site, without using TMDB make everything working, use hardcoded data whever possible
+  - add buttons for scroll
+  - add google auth also
+  - on click on movie cards take to youtube trailer pages
+  - on click of movie card show netflix like bigger card with more details [optinal]
 
 # Features
 

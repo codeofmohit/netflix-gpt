@@ -48,6 +48,7 @@ const Login = () => {
     dispatch(addUser(userInfo));
   };
 
+  // updating user info after login in
   const updateUserWithName = (user) => {
     updateProfile(auth.currentUser, {
       displayName: name,
