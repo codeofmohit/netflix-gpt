@@ -12,7 +12,7 @@ const HeroVideoBg = ({ id }) => {
     <div>
       <iframe
         id="youtube-video"
-        class="pointer-events-none aspect-video w-[100%]"
+        className="pointer-events-none aspect-video w-[100%]"
         src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&loop=1&rel=0&controls=0&showinfo=0&modestbranding=1`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
