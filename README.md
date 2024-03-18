@@ -214,7 +214,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - when not connected to vpn taking a lot of time if takes more then 3 seconds display harcoded data ✅
   - find an alternative for suggested video tmdb issue ❌
     - api issue, gave alter and warning for the same ✅
-  - fix reload issue on firebase live
+  - fix reload issue on firebase live ✅
 
 - additional features
   - on click on movie cards take them to movie trailer on youtube

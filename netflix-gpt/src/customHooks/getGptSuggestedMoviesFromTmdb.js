@@ -22,9 +22,6 @@ const getGptSuggestedMoviesFromTmdb = (gptSuggestions, dispatch) => {
     movieArr.then((data) => {
       // data[0] means the array is of undefined(most likely), if yes return
       if (!data[0]) {
-        window.alert(
-          "Your're likely on a JIO network, in this feature we make use of TMDB api(s) which are not stable on jio, try switching your network or connect via a VPN such as VeePN Chrome extension, Thanks!"
-        );
         return;
       }
       dispatch(addSearchedMoviesResults(data));
