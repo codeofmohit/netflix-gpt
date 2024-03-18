@@ -24,10 +24,12 @@ export const TMDB_API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1N2ViOGY0Y2I5MmY3ZWY2OTBhMjUwOThmNTUyYzAxZSIsInN1YiI6IjY1ZjBlZjU0ZDY0YWMyMDE4NzVkMmM0YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nAHJU3vuDebDvuvJTrhtRsxS7-oaIjI1VWlgQFeSscg",
+    Authorization: process.env.REACT_APP_TMDB_OPTION,
   },
 };
+
+export const OMDB_API =
+  "http://www.omdbapi.com/?apikey=" + process.env.REACT_APP_OMDB_API_KEY;
 
 export const multiLangOptions = [
   { type: "english", value: "english" },

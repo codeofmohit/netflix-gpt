@@ -205,18 +205,24 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
       - md/lg : for desktop ✅
       - by default : whatever styling is there would be for mobile ✅
 
-- Bug fixes + making the project stable as much as possible + additional features ❌
+- Bug fixes + making the project stable as much as possible ❌
+
   - plan once the above points are done ...
+  - whever calling tmdb api(s) store hardcode that data, as TMDB is not working ✅
+  - work on the stability of site, without using TMDB make everything working, use hardcoded data whever possible ✅
+  - hero movie text if more then 2 lines, append it with ... ✅
+  - when not connected to vpn taking a lot of time if takes more then 3 seconds display harcoded data ✅
+  - find an alternative for suggested video tmdb issue ❌
+    - api issue, gave alter and warning for the same ✅
+  - fix reload issue on firebase live
+
+- additional features
+  - on click on movie cards take them to movie trailer on youtube
   - add footer in site
   - show hide password option on login form
   - shimmer / login text / loader whenever loading is happening
-  - on click on homepage video is stopping check what is the issue
-  - whever calling tmdb api(s) store hardcode that data, as TMDB is not working
-  - work on the stability of site, without using TMDB make everything working, use hardcoded data whever possible
   - add buttons for scroll
   - add google auth also
-  - on click on movie cards take to youtube trailer pages
-  - on click of movie card show netflix like bigger card with more details [optinal]
   - validation on chatGPT search bar
 
 # Features
