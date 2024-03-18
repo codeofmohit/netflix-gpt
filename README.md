@@ -220,10 +220,9 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - on click on movie cards take them to movie trailer on youtube
   - add footer in site
   - show hide password option on login form
-  - shimmer / login text / loader whenever loading is happening
   - add buttons for scroll
   - add google auth also
-  - validation on chatGPT search bar
+  - validation on chatGPT search bar!
 
 # Features
 
