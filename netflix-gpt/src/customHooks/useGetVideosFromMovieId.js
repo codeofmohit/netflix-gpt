@@ -1,11 +1,15 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { addHeroMovieTrailer } from "../store/slices/moviesSlice";
 import { API_VIDEOS_FROM_ID, TMDB_API_OPTIONS } from "../constants/constants";
 
 const useGetVideosFromMovieId = (id) => {
   const dispatch = useDispatch();
+
+  const isVideoAlreadyExistsInStore = useSelector(
+    (state) => state.movies.trailerVideo
+  );
 
   const video_api_url = `${API_VIDEOS_FROM_ID}/${id}/videos`;
 
@@ -23,7 +27,9 @@ const useGetVideosFromMovieId = (id) => {
   };
 
   useEffect(() => {
-    getVideosFromMovieId();
+    if (!isVideoAlreadyExistsInStore) {
+      getVideosFromMovieId();
+    }
   }, []);
 };
 export default useGetVideosFromMovieId;

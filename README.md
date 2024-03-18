@@ -188,13 +188,13 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - add .env file to gitIgnore ✅
   - store all firebase config also in env ✅
 
-- Memoization ❌
+- Memoization ✅
 
-  - for avoiding unnecessry api calls we can memoize, hooks fetching ones
-  - if redux store has data for example moveis, then don't make api call for fetching moveis
-  - do the same for all fetching logics
-  - no need to use useMemo
-  - simply check if store has it, don't call fetch function in useEffect
+  - for avoiding unnecessry api calls we can memoize, hooks fetching ones ✅
+  - if redux store has data for example moveis, then don't make api call for fetching moveis ✅
+  - do the same for all fetching logics ✅
+  - no need to use useMemo ✅
+  - simply check if store has it, don't call fetch function in useEffect ✅
 
 - Make the site mobile responsive ❌
 

@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import { useSelector } from "react-redux";
 
 import Header from "./Header";
@@ -17,9 +19,14 @@ const Browse = () => {
   // load langConstant for multi language from constant file and move it into redux
   useMoveTextConstantsIntoStore();
 
+  // memoizing header
+  const memoizedHeader = useMemo(() => {
+    return <Header />;
+  }, []);
+
   return (
     <div>
-      <Header />
+      {memoizedHeader}
       {isGptSearchBtnClicked ? (
         <>
           <MainContainer />

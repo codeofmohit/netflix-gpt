@@ -7,8 +7,6 @@ const GptSearchSuggestions = () => {
   );
   const listTitles = useSelector((state) => state.gptSearch?.movieNames);
 
-  console.log("search suggestion component re-render");
-
   return (
     <div className="absolute top-[40vh] bg-[rgba(0,0,0,0.6)] m-8">
       {movieSuggestions &&

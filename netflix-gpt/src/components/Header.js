@@ -51,11 +51,9 @@ const Header = () => {
       .then(() => {
         // Sign-out successful.
         dispatch(removeUser());
-        console.log("user signed out successfully!");
       })
       .catch((error) => {
         // An error happened.
-        console.log("user signedout error!" + error);
       });
   };
 

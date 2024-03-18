@@ -57,7 +57,6 @@ const Login = () => {
     })
       .then(() => {
         // Profile updated!
-        console.log("Profile updated with name & photo url...");
         // once profile updated with name then add it to the redux store
         addUserToReduxStore(user);
       })
