@@ -28,9 +28,6 @@ export const TMDB_API_OPTIONS = {
   },
 };
 
-export const OMDB_API =
-  "http://www.omdbapi.com/?apikey=" + process.env.REACT_APP_OMDB_API_KEY;
-
 export const multiLangOptions = [
   { type: "english", value: "english" },
   { type: "hindi", value: "hindi" },
