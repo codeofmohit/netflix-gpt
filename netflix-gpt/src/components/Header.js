@@ -67,7 +67,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute flex flex-col md:flex-row justify-between items-center w-full bg-gradient-to-b from-black  to-[rgba(0,0,0,0.7)] md:bg-gradient-to-r md:from-black md:to-transparent z-20">
+    <div className="absolute flex flex-col md:flex-row justify-between items-center w-full bg-gradient-to-b from-black  to-[rgba(0,0,0,0.9)] md:bg-gradient-to-r md:from-black md:to-transparent z-20">
       <div className="logo">
         <Link to="/login">
           <img
