@@ -67,18 +67,22 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute flex justify-between items-center w-full bg-gradient-to-r from-black to-transparent z-20">
+    <div className="absolute flex flex-col md:flex-row justify-between items-center w-full bg-gradient-to-b from-black  to-[rgba(0,0,0,0.9)] md:bg-gradient-to-r md:from-black md:to-transparent z-20">
       <div className="logo">
         <Link to="/login">
-          <img className="p-6 ml-6 w-48" src={LOGO} alt="logo" />
+          <img
+            className="p-5 md:p-6  md:ml-6 w-40 md:w-48"
+            src={LOGO}
+            alt="logo"
+          />
         </Link>
       </div>
-      <div className="navbar ">
+      <div className="navbar pb-4 md:pb-[unset] mt-[-0.25rem] md:mt-[unset]">
         <ul className="flex justify-around items-center">
           {user && (
             <>
               {!isGptSearchBtnClicked && (
-                <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-black rounded">
+                <li className="hidden md:block p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-black rounded">
                   <select onChange={multiLangSelectHandler}>
                     {multiLangOptions?.map((each) => {
                       return (
@@ -91,7 +95,7 @@ const Header = () => {
                 </li>
               )}
 
-              <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
+              <li className="md:p-2 mr-2 md:m-4 md:font-medium md:text-lg md:bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
                 <button
                   className="flex justify-center items-center"
                   to="/"
@@ -102,19 +106,19 @@ const Header = () => {
                   </span>
                 </button>
               </li>
-              <li className="p-2 m-4 font-medium text-lg bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
+              <li className="md:p-2 md:m-4 md:font-medium md:text-lg md:bg-[rgba(0,0,0,0.8)] text-white rounded hover:text-[rgb(250,40,54)]">
                 <button
                   className="flex justify-center items-center"
                   to="/"
                   onClick={signOutHandler}
                 >
                   <img
-                    className="rounded h-8 w-8"
+                    className="rounded h-8 w-8 hidden md:block"
                     src={userState?.photoURL}
                     alt="profile"
                   />
-                  <p>&nbsp;&nbsp;{userState?.displayName}&nbsp;&nbsp;</p>
-                  <span>(Sign Out)</span>
+                  <p>&nbsp;&nbsp;{userState?.displayName}</p>
+                  <span>(sign out)</span>
                 </button>
               </li>
             </>
