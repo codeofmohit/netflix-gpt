@@ -11,7 +11,11 @@ const MovieCard = ({ movie }) => {
   return (
     <>
       {moviePoster && (
-        <img className="rounded m-3" src={moviePoster} alt={original_title} />
+        <img
+          className="rounded m-2 md:m-3 w-[25%] md:w-auto"
+          src={moviePoster}
+          alt={original_title}
+        />
       )}
     </>
   );

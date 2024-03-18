@@ -207,6 +207,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
 
 - Bug fixes + making the project stable as much as possible + additional features ❌
   - plan once the above points are done ...
+  - add footer in site
   - show hide password option on login form
   - shimmer / login text / loader whenever loading is happening
   - on click on homepage video is stopping check what is the issue
@@ -216,6 +217,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - add google auth also
   - on click on movie cards take to youtube trailer pages
   - on click of movie card show netflix like bigger card with more details [optinal]
+  - validation on chatGPT search bar
 
 # Features
 
