@@ -5,11 +5,9 @@ const userSlice = createSlice({
   initialState: null,
   reducers: {
     addUser: (state, action) => {
-      console.log("coming in adduser reducer");
       return action.payload;
     },
     removeUser: (state) => {
-      console.log("coming in removeUser reducer");
       return null;
     },
   },
