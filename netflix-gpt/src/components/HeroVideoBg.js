@@ -9,7 +9,7 @@ const HeroVideoBg = ({ id }) => {
   const trailerKey = useSelector((state) => state.movies.trailerVideo?.key);
 
   return (
-    <div>
+    <div className="heroVideoBg pt-[6.85rem] md:pt-[unset]">
       <iframe
         id="youtube-video"
         className="pointer-events-none aspect-video w-[100%]"

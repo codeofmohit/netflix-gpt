@@ -126,17 +126,21 @@ const Login = () => {
 
   // returned JSX
   return (
-    <div>
+    <div className=" overflow-y-hidden">
       {/* memoized version of header to prevent not needed renders  */}
       {memoizedHeader}
-      <img src={LOGIN_BG} alt="background" />
+      <img
+        className="max-w-none md:max-w-[100%] h-[100vh] md:h-[unset]"
+        src={LOGIN_BG}
+        alt="background"
+      />
       {/* sing in + sign up form  */}
-      <form className="flex flex-col mx-auto p-8 m-4 rounded bg-[rgba(0,0,0,0.75)] top-[20%] left-[50%] translate-x-[-50%] absolute w-[450px]">
+      <form className="flex flex-col mx-auto p-4 md:p-8 mb-[-4rem] md:mb-4 rounded bg-[rgba(0,0,0,0.75)] top-[15%] md:top-[20%] left-[50%] translate-x-[-50%] absolute w-[100%] md:w-[450px]">
         {/* form heading */}
-        <h1 className="p-3 text-white text-3xl">
+        <h1 className="p-3 text-white text-2xl md:text-3xl font-semibold md:font-bold">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
-        <p className=" text-red-600 font-medium py-3 mx-3">
+        <p className=" text-red-600 text-sm md:text-base  font-light md:font-medium py-1 md:py-3 mx-3">
           Desclaimer : This is just a dummy project to showcase my skills & for
           learning purpose. This is not an actual streaming website, do not
           enter your actual credential here.

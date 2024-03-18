@@ -8,7 +8,7 @@ const GptSearchSuggestions = () => {
   const listTitles = useSelector((state) => state.gptSearch?.movieNames);
 
   return (
-    <div className="absolute top-[40vh] bg-[rgba(0,0,0,0.6)] m-8">
+    <div className="absolute top-[22vh] md:top-[40vh] bg-[rgba(0,0,0,0.6)] m-0 md:m-8 mt-8 md:mt-[unset] rounded">
       {movieSuggestions &&
         listTitles.map((each, index) => {
           return (

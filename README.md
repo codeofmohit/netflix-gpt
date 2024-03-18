@@ -196,17 +196,18 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - no need to use useMemo ✅
   - simply check if store has it, don't call fetch function in useEffect ✅
 
-- Make the site mobile responsive ❌
+- Make the site mobile responsive ✅
 
-  - using tailwind
-    - default sm:(tablet min-width:640px) md:(desktop min-width:768px)
-    - mobile first approch,
-      - sm : for tablets
-      - md/lg : for desktop
-      - by default : whatever styling is there would be for mobile
+  - using tailwind ✅
+    - default sm:(tablet min-width:640px) md:(desktop min-width:768px) ✅
+    - mobile first approch, ✅
+      - sm : for tablets ✅
+      - md/lg : for desktop ✅
+      - by default : whatever styling is there would be for mobile ✅
 
 - Bug fixes + making the project stable as much as possible + additional features ❌
   - plan once the above points are done ...
+  - add footer in site
   - show hide password option on login form
   - shimmer / login text / loader whenever loading is happening
   - on click on homepage video is stopping check what is the issue
@@ -216,6 +217,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - add google auth also
   - on click on movie cards take to youtube trailer pages
   - on click of movie card show netflix like bigger card with more details [optinal]
+  - validation on chatGPT search bar
 
 # Features
 

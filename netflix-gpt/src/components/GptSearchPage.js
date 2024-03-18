@@ -5,7 +5,11 @@ import GptSearchSuggestions from "./GptSearchSuggestions";
 const GptSearchPage = () => {
   return (
     <>
-      <img className="fixed" src={LOGIN_BG} alt="background" />
+      <img
+        className="fixed max-w-none md:max-w-[100%]"
+        src={LOGIN_BG}
+        alt="background"
+      />
       <div className="gptPageContent z-40 w-full relative">
         <GptSearchBar />
         <GptSearchSuggestions />
