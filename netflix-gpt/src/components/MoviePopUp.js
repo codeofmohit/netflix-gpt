@@ -16,7 +16,7 @@ const MoviePopUp = () => {
 
   console.log(movieData);
   return (
-    <div className="moviePopUp p-0 md:p-8 mx-auto w-full md:w-1/2 fixed top-[50%] md:top-[50vh] left-[50vw] -translate-x-[50%] -translate-y-[60%] md:-translate-y-[50%] z-50 shadow-2xl">
+    <div className="moviePopUp p-0 md:p-8 mx-auto w-full md:w-1/2 fixed top-[60%] md:top-[50vh] left-[50vw] -translate-x-[50%] -translate-y-[60%] md:-translate-y-[50%] z-50 shadow-2xl">
       <div className="movieCard bg-[rgba(0,0,0,0.85)] m-4 md:m-0 p-0 md:p-4 rounded-xl flex flex-col md:flex-row justify-between items-center">
         <div className="imgContent pr-4">
           <img

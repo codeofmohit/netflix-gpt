@@ -15,7 +15,7 @@ const HeroVideoInfo = ({ title, overview, ytKey }) => {
   };
 
   return (
-    <div className="pt-32 md:pt-[14rem] pb-40 md:pb-[14rem] p-4 absolute top-[20%] md:top-[36%] translate-y-[-30%] md:pl-12 bg-gradient-to-r from-black to-transparent z-10">
+    <div className="pt-32 md:pt-[14rem] pb-40 md:pb-[14rem] p-4 absolute top-[22%] md:top-[36%] translate-y-[-30%] md:pl-12 bg-gradient-to-r from-black to-transparent z-10">
       <h1 className="font-bold text-xl md:text-5xl mb-2 md:mb-4 text-white">
         {title}
       </h1>
@@ -24,7 +24,7 @@ const HeroVideoInfo = ({ title, overview, ytKey }) => {
       </p>
       <div className="mt-4 md:block">
         <button
-          className="mr-4 text-slate-800 bg-white rounded py-1 md:py-2 px-2 md:px-3 font-medium text-sm md:text-base"
+          className="mr-4 text-slate-800 bg-white rounded py-1 md:py-2 px-2 md:px-3 font-bold md:font-medium text-sm md:text-base"
           onClick={playTrailerBtnHandler}
         >
           ▶️&nbsp; Play Trailer on YT

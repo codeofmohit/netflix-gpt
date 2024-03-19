@@ -37,10 +37,7 @@ const Browse = () => {
           {isMoviePop && <MoviePopUp />}
         </>
       ) : (
-        <>
-          <GptSearchPage />
-          {isMoviePop && <MoviePopUp />}
-        </>
+        <GptSearchPage />
       )}
     </div>
   );
