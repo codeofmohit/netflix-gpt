@@ -2,7 +2,10 @@ import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import getMovieSuggestionsFromGPT from "../customHooks/getMovieSuggestionsFromGPT";
 import getGptSuggestedMoviesFromTmdb from "../customHooks/getGptSuggestedMoviesFromTmdb";
-import { addGptSuggestedMovies } from "../store/slices/gptSlice";
+import {
+  addGptSuggestedMovies,
+  searchBtnClicked,
+} from "../store/slices/gptSlice";
 
 const GptSearchBar = () => {
   const searchInput = useRef();
@@ -19,6 +22,8 @@ const GptSearchBar = () => {
       dispatch(addGptSuggestedMovies(movieNames));
       // calling tmdb api's to get those movie's data + storing movie result in redux
       getGptSuggestedMoviesFromTmdb(movieNames, dispatch);
+      // state for identifying that search btn is clicked
+      dispatch(searchBtnClicked());
     });
   };
 
