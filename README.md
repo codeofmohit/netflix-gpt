@@ -205,7 +205,7 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
       - md/lg : for desktop ✅
       - by default : whatever styling is there would be for mobile ✅
 
-- Bug fixes + making the project stable as much as possible ❌
+- Bug fixes + making the project stable as much as possible ✅
 
   - plan once the above points are done ...
   - whever calling tmdb api(s) store hardcode that data, as TMDB is not working ✅
@@ -217,12 +217,29 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - fix reload issue on firebase live ✅
 
 - additional features
-  - on click on movie cards take them to movie trailer on youtube
+
+  - on click on movie cards take them to movie trailer on youtube ✅
+
+    - for bgVideo ✅
+    - for other movies cards ✅
+      - plan ✅
+        - give 2 options (btns) ✅
+          - view details ✅
+            - whatever we have in redux store, title, overview etc etc, make use of it and make a opo up card ✅
+          - watch trailer ✅
+            - query youtube with title and sent them to trailer search page, on youtube
+        - make all things mobile responsive ✅
+
   - add footer in site
+  - bug fix, after clicking on search only, if can't fetch gptsearch then only show then JIO network issue
   - show hide password option on login form
   - add buttons for scroll
-  - add google auth also
   - validation on chatGPT search bar!
+  - add google auth also
+
+- Deployment + Self-branding
+  -- deploy final project on firebase hosting
+  -- write a linkedin Post Appreaciating sir Akshay Saini, your own efforts, Additional features, Job fetching post
 
 # Features
 

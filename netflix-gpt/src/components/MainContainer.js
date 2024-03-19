@@ -5,6 +5,7 @@ import HeroVideoInfo from "./HeroVideoInfo";
 
 const MainContainer = () => {
   const movies = useSelector((state) => state?.movies?.nowPlayingMovies);
+  const trailerKey = useSelector((state) => state.movies.trailerVideo?.key);
 
   // early return if movies are not loaded
   if (!movies) return;
@@ -16,7 +17,11 @@ const MainContainer = () => {
   return (
     <div>
       <HeroVideoBg id={id} />
-      <HeroVideoInfo title={original_title} overview={overview} />
+      <HeroVideoInfo
+        title={original_title}
+        overview={overview}
+        ytKey={trailerKey}
+      />
     </div>
   );
 };
