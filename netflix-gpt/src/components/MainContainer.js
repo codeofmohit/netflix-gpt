@@ -10,8 +10,13 @@ const MainContainer = () => {
   // early return if movies are not loaded
   if (!movies) return;
 
+  const filteredArgyleMovie = movies?.find((each) => {
+    return each.title === "Argylle";
+  });
+
   // fisrt movie === hero movie
-  const heroMovie = movies[2];
+  const heroMovie = filteredArgyleMovie ? filteredArgyleMovie : movies[0];
+
   const { original_title, overview, id } = heroMovie;
 
   return (

@@ -24,7 +24,7 @@ const GptSearchBar = () => {
 
   return (
     <form
-      className="p-2 md:p-4 bg-black rounded-xl absolute top-[18vh] md:top-[30vh] left-[50vw] md:left-[50vw] translate-x-[-50%] translate-y-[-30%]  w-[95%] md:w-2/4 flex justify-between"
+      className="p-2 md:p-4 bg-black rounded-xl absolute top-[19vh] md:top-[30vh] left-[50vw] md:left-[50vw] translate-x-[-50%] translate-y-[-30%]  w-[95%] md:w-2/4 flex justify-between"
       onSubmit={gptSearchBarSubmitHandler}
     >
       <input
