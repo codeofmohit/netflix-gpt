@@ -35,7 +35,7 @@ const Header = () => {
       } else {
         // signed out or not signed in
         setUserState(null);
-        navigate("/login");
+        navigate("/");
       }
     });
 
