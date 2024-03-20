@@ -21,6 +21,8 @@ import Footer from "./Footer";
 import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 import { USER_AVATAR, LOADER_BTN_CONTENT } from "../constants/constants";
 
+import googleLogo from "../constants/google.svg";
+
 const Login = () => {
   const email = useRef();
   const password = useRef();
@@ -176,7 +178,7 @@ const Login = () => {
         alt="background"
       />
       {/* sing in + sign up form  */}
-      <form className="flex flex-col mx-auto p-4 md:p-8 mb-[-4rem] md:mb-4 rounded bg-[rgba(0,0,0,0.75)] top-[15%] md:top-[20%] left-[50%] translate-x-[-50%] absolute w-[100%] md:w-[450px]">
+      <form className="flex flex-col mx-auto p-4 md:p-8 mb-[-4rem] md:mb-4 rounded bg-[rgba(0,0,0,0.75)] top-[13%] md:top-[20%] left-[50%] translate-x-[-50%] absolute w-[100%] md:w-[450px]">
         {/* form heading */}
         <h1 className="p-3 text-white text-2xl md:text-3xl font-semibold md:font-bold">
           {isSignIn ? "Sign In" : "Sign Up"}
@@ -239,11 +241,15 @@ const Login = () => {
             ? "Not registered yet! Sign up now"
             : "Already a customer! Sign in"}
         </p>
+        <p className="text-center text-white mb-4 -mt-2 font-bold texl-2xl">
+          OR
+        </p>
         <div
-          className="continueWithGoogle text-white cursor-pointer"
+          className="continueWithGoogle text-white cursor-pointer flex justify-center items-center p-2 border-2 border-white rounded w-[95%] text-center mx-auto"
           onClick={continueWithGoogle}
         >
-          <p>continue with google</p>
+          <img className="w-8" src={googleLogo} alt="googleLogo" />
+          <p className="pl-4">Continue with Google</p>
         </div>
       </form>
       <Footer />
