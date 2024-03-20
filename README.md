@@ -237,10 +237,9 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - validation on chatGPT search bar ✅
   - add buttons for scroll, impplement scroll feature ✅
   - add google auth also ✅
-  - make google sign in looking good + make feature mobile responsive
+  - make google sign in looking good + make feature mobile responsive ✅
 
-- Deployment + Self-branding
-  -- deploy final project on firebase hosting
+- Self-branding ❌
   -- write a linkedin Post Appreaciating sir Akshay Saini, your own efforts, Additional features, Job fetching post
 
 # Features
