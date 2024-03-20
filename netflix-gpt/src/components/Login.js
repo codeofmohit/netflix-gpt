@@ -1,20 +1,25 @@
 import { useRef, useState, useMemo } from "react";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
+import { auth } from "../utils/firebaseConfig";
+import { provider } from "../utils/googleProvider";
+
 import { useDispatch } from "react-redux";
 
 import { addUser } from "../store/slices/userSlice";
-import { auth } from "../utils/firebaseConfig";
 
-import Header from "./Header";
 import { validateFields } from "../utils/validate";
+import Header from "./Header";
+import Footer from "./Footer";
 
 import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 import { USER_AVATAR, LOADER_BTN_CONTENT } from "../constants/constants";
-import Footer from "./Footer";
 
 const Login = () => {
   const email = useRef();
@@ -134,6 +139,32 @@ const Login = () => {
     }
   };
 
+  const continueWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        addUserToReduxStore(user);
+        console.log(user);
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        setErrorMessage(errorCode + " - google sign in err - " + errorMessage);
+        // ...
+      });
+  };
+
   // returned JSX
   return (
     <div className=" overflow-y-hidden">
@@ -208,6 +239,12 @@ const Login = () => {
             ? "Not registered yet! Sign up now"
             : "Already a customer! Sign in"}
         </p>
+        <div
+          className="continueWithGoogle text-white cursor-pointer"
+          onClick={continueWithGoogle}
+        >
+          <p>continue with google</p>
+        </div>
       </form>
       <Footer />
     </div>
