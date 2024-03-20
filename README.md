@@ -230,9 +230,10 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
             - query youtube with title and sent them to trailer search page, on youtube
         - make all things mobile responsive ✅
 
-  - add footer in site
+  - add footer in site ✅
   - bug fix, after clicking on search only, if can't fetch gptsearch then only show then JIO network issue ✅
-  - show hide password option on login form, also fix login page styling
+  - show hide password option on login form
+  - fix login page styling ✅
   - add buttons for scroll
   - validation on chatGPT search bar!
   - add google auth also

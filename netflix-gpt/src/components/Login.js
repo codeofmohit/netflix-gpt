@@ -14,6 +14,7 @@ import { validateFields } from "../utils/validate";
 
 import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 import { USER_AVATAR, LOADER_BTN_CONTENT } from "../constants/constants";
+import Footer from "./Footer";
 
 const Login = () => {
   const email = useRef();
@@ -130,7 +131,7 @@ const Login = () => {
       {/* memoized version of header to prevent not needed renders  */}
       {memoizedHeader}
       <img
-        className="max-w-none md:max-w-[100%] h-[100vh] md:h-[unset]"
+        className="max-w-none md:max-w-[100%] h-[80vh] md:h-[unset]"
         src={LOGIN_BG}
         alt="background"
       />
@@ -191,6 +192,7 @@ const Login = () => {
             : "Already a customer! Sign in"}
         </p>
       </form>
+      <Footer />
     </div>
   );
 };

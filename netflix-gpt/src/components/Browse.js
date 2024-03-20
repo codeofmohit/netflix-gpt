@@ -9,6 +9,7 @@ import SecondaryContainer from "./SecondaryContainer";
 import GptSearchPage from "./GptSearchPage";
 import useMoveTextConstantsIntoStore from "../customHooks/useMoveTextConstantsIntoStore";
 import MoviePopUp from "./MoviePopUp";
+import Footer from "./Footer";
 
 const Browse = () => {
   const isGptSearchBtnClicked = useSelector(
@@ -39,6 +40,7 @@ const Browse = () => {
       ) : (
         <GptSearchPage />
       )}
+      <Footer />
     </div>
   );
 };
