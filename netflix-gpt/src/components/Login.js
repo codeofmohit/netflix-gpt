@@ -173,7 +173,7 @@ const Login = () => {
       {/* memoized version of header to prevent not needed renders  */}
       {memoizedHeader}
       <img
-        className="max-w-none md:max-w-[100%] h-[83vh] md:h-[unset]"
+        className="max-w-none md:max-w-[100%] h-[87vh] md:h-[unset]"
         src={LOGIN_BG}
         alt="background"
       />
