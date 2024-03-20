@@ -117,7 +117,7 @@ const Header = () => {
                     src={userState?.photoURL}
                     alt="profile"
                   />
-                  <p>&nbsp;{userState?.displayName}</p>
+                  <p>&nbsp;{userState?.displayName}&nbsp;</p>
                   <span>(sign out)</span>
                 </button>
               </li>
