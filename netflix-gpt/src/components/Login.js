@@ -1,25 +1,34 @@
 import { useRef, useState, useMemo } from "react";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
+import { auth } from "../utils/firebaseConfig";
+import { provider } from "../utils/googleProvider";
+
 import { useDispatch } from "react-redux";
 
 import { addUser } from "../store/slices/userSlice";
-import { auth } from "../utils/firebaseConfig";
 
-import Header from "./Header";
 import { validateFields } from "../utils/validate";
+import Header from "./Header";
+import Footer from "./Footer";
 
 import LOGIN_BG from "../constants/codeofmohit_bg.jpeg";
 import { USER_AVATAR, LOADER_BTN_CONTENT } from "../constants/constants";
+
+import googleLogo from "../constants/google.svg";
 
 const Login = () => {
   const email = useRef();
   const password = useRef();
   const signInUpBtn = useRef();
   const [name, setName] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
 
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -124,18 +133,52 @@ const Login = () => {
     }
   };
 
+  const passwordShowHideToggler = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else {
+      setPasswordType("password");
+    }
+  };
+
+  const continueWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        addUserToReduxStore(user);
+        console.log(user);
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        setErrorMessage(errorCode + " - google sign in err - " + errorMessage);
+        // ...
+      });
+  };
+
   // returned JSX
   return (
     <div className=" overflow-y-hidden">
       {/* memoized version of header to prevent not needed renders  */}
       {memoizedHeader}
       <img
-        className="max-w-none md:max-w-[100%] h-[100vh] md:h-[unset]"
+        className="max-w-none md:max-w-[100%] h-[87vh] md:h-[unset]"
         src={LOGIN_BG}
         alt="background"
       />
       {/* sing in + sign up form  */}
-      <form className="flex flex-col mx-auto p-4 md:p-8 mb-[-4rem] md:mb-4 rounded bg-[rgba(0,0,0,0.75)] top-[15%] md:top-[20%] left-[50%] translate-x-[-50%] absolute w-[100%] md:w-[450px]">
+      <form className="flex flex-col mx-auto p-4 md:p-8 mb-[-4rem] md:mb-4 rounded bg-[rgba(0,0,0,0.75)] top-[13%] md:top-[20%] left-[50%] translate-x-[-50%] absolute w-[100%] md:w-[450px]">
         {/* form heading */}
         <h1 className="p-3 text-white text-2xl md:text-3xl font-semibold md:font-bold">
           {isSignIn ? "Sign In" : "Sign Up"}
@@ -163,12 +206,20 @@ const Login = () => {
           ref={email}
         />
         {/* password input  */}
-        <input
-          className="p-3 m-2 border rounded bg-slate-100"
-          type="password"
-          placeholder="password"
-          ref={password}
-        />
+        <div className="relative">
+          <input
+            className="p-3 m-2 border rounded bg-slate-100 w-[95%] md:w-[96%]"
+            type={passwordType}
+            placeholder="password"
+            ref={password}
+          />
+          <span
+            onClick={passwordShowHideToggler}
+            className="absolute top-[1.4rem] right-[1.5rem] cursor-pointer"
+          >
+            👁‍🗨
+          </span>
+        </div>
         {/* error message  */}
         {errorMessage && (
           <p className=" text-red-600 font-medium py-3 mx-3">{errorMessage}</p>
@@ -190,7 +241,18 @@ const Login = () => {
             ? "Not registered yet! Sign up now"
             : "Already a customer! Sign in"}
         </p>
+        <p className="text-center text-white mb-4 -mt-2 font-bold texl-2xl">
+          OR
+        </p>
+        <div
+          className="continueWithGoogle text-white cursor-pointer flex justify-center items-center p-2 border-2 border-white rounded w-[95%] text-center mx-auto"
+          onClick={continueWithGoogle}
+        >
+          <img className="w-8" src={googleLogo} alt="googleLogo" />
+          <p className="pl-4">Continue with Google</p>
+        </div>
       </form>
+      <Footer />
     </div>
   );
 };

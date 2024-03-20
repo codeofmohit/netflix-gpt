@@ -38,3 +38,7 @@ export const gptQueryGenerator = (searchString) => {
   const query = `act as a movie recommendation system and recommend me movies names for this specfic query : ${searchString} , only give me 5 comma seprated movie names as result, For example for query : indian old is gold movies, result : gadar,sholey,don,golmaal,kabhi khushi kabhi gam. Note: i will need to create an array of the movie names which you will give me so always give me comma seprated movie names as result, do not include any other text or empty spaces before or after comma`;
   return query;
 };
+
+export const YOUTUBE_TRAILER_URL = "https://www.youtube.com/watch?v=";
+export const YOUTUBE_QUERY_URL =
+  "https://www.youtube.com/results?search_query=";

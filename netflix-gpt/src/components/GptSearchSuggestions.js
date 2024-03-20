@@ -7,34 +7,43 @@ const GptSearchSuggestions = () => {
   );
   const listTitles = useSelector((state) => state.gptSearch?.movieNames);
 
-  if (!movieSuggestions) {
-    return (
-      <div className="p-8 absolute top-[22vh] md:top-[40vh] bg-[rgba(0,0,0,0.6)] m-0 md:m-8 mt-8 md:mt-[unset] rounded text-white ">
-        <h1 className="m-2 p-2 rounded font-bold text-lg text-slate-300 bg-[rgba(0,0,0,0.5)] inline-block">
-          Note : Do try searching first! <br></br>in case search does not work,
-          read below ⤵️
-        </h1>
-        <h1 className="m-2">
-          Your're likely on a JIO network, in this feature we make use of TMDB
-          api(s) which are not stable on jio, try switching your network or
-          connect via a VPN such as VeePN Chrome extension, Thanks!
-        </h1>
-      </div>
-    );
-  }
+  const isSearchBtnClicked = useSelector(
+    (state) => state.gptSearch?.isSearchBtnClicked
+  );
+
+  const isShow = isSearchBtnClicked ? "block" : "hidden";
 
   return (
-    <div className="absolute top-[22vh] md:top-[40vh] bg-[rgba(0,0,0,0.6)] m-0 md:m-8 mt-8 md:mt-[unset] rounded">
-      {movieSuggestions &&
-        listTitles.map((each, index) => {
-          return (
-            <MovieList
-              key={each}
-              title={each}
-              movies={movieSuggestions[index]?.results}
-            />
-          );
-        })}
+    <div
+      className={`${isShow} top-[22vh] translate-y-52 md:translate-y-80 md:top-[40vh] bg-[rgba(0,0,0,0.6)] m-0 md:m-8 rounded py-2`}
+    >
+      {isSearchBtnClicked && (
+        <>
+          {movieSuggestions ? (
+            listTitles.map((each, index) => {
+              return (
+                <MovieList
+                  key={each}
+                  title={each}
+                  movies={movieSuggestions[index]?.results}
+                />
+              );
+            })
+          ) : (
+            <div className="text-white text-center p-4">
+              <h1 className="text-xl p-1 font-bold">
+                It seems like you're on JIO
+              </h1>
+              <p className="text-center font-bold py-2">
+                Hi There! it seems like you're on JIO network, in this search
+                feature, we are making use of TMDB api(s), which are highly
+                unstable on JIO network. Please do change your network or try
+                connecting via a VPN, such as VeePN. Thanks!
+              </p>
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };

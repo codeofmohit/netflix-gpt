@@ -8,11 +8,15 @@ import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import GptSearchPage from "./GptSearchPage";
 import useMoveTextConstantsIntoStore from "../customHooks/useMoveTextConstantsIntoStore";
+import MoviePopUp from "./MoviePopUp";
+import Footer from "./Footer";
 
 const Browse = () => {
   const isGptSearchBtnClicked = useSelector(
     (state) => state.gptSearch?.isClicked
   );
+
+  const isMoviePop = useSelector((state) => state.movies.moviePopUp);
 
   // hooks for fetching movie lists from api's and storing into redux store
   useGetMoviesLists();
@@ -31,10 +35,12 @@ const Browse = () => {
         <>
           <MainContainer />
           <SecondaryContainer />
+          {isMoviePop && <MoviePopUp />}
         </>
       ) : (
         <GptSearchPage />
       )}
+      <Footer />
     </div>
   );
 };
