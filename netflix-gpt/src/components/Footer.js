@@ -4,7 +4,7 @@ const Footer = () => {
       <h2 className="text-sm my-2 md:my-0">
         &copy; Feel free to copy whatever you need. 😍
       </h2>
-      <h1 className="text-base md:text-xl font-medium px-4 md:px-0">
+      <h1 className="text-base md:text-l px-4 md:px-0">
         Made with ❤️ by&nbsp;
         <a
           href="https://www.linkedin.com/in/codeofmohit-mohit-verma/"
