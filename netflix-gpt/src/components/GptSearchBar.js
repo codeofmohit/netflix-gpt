@@ -17,6 +17,10 @@ const GptSearchBar = () => {
   const gptSearchBarSubmitHandler = (e) => {
     e.preventDefault();
     const searchString = searchInput.current.value;
+    if (!searchString) {
+      window.alert("Invalid Input! Try again.");
+      return;
+    }
     // taking movie suggestion from chat gpt and store those movie names to redux store
     getMovieSuggestionsFromGPT(searchString).then((movieNames) => {
       dispatch(addGptSuggestedMovies(movieNames));
