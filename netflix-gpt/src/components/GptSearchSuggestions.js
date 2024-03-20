@@ -15,7 +15,7 @@ const GptSearchSuggestions = () => {
 
   return (
     <div
-      className={`${isShow} top-[22vh] translate-y-52 md:translate-y-80 md:top-[40vh] bg-[rgba(0,0,0,0.6)] m-0 md:m-8 mt-8 md:mt-[unset] rounded py-2`}
+      className={`${isShow} top-[22vh] translate-y-52 md:translate-y-80 md:top-[40vh] bg-[rgba(0,0,0,0.6)] m-0 md:m-8 rounded py-2`}
     >
       {isSearchBtnClicked && (
         <>

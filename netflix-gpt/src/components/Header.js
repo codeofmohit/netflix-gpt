@@ -67,11 +67,11 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute flex flex-col md:flex-row justify-between items-center w-full bg-gradient-to-b from-black  to-[rgba(0,0,0,0.9)] md:bg-gradient-to-r md:from-black md:to-transparent z-20">
+    <div className="absolute flex flex-col md:flex-row justify-between items-stretch md:items-center w-full bg-gradient-to-b from-black  to-[rgba(0,0,0,0.9)] md:bg-gradient-to-r md:from-black md:to-transparent z-20">
       <div className="logo">
         <Link to="/login">
           <img
-            className="p-5 md:p-6  md:ml-6 w-40 md:w-48"
+            className="p-5 md:p-6  md:ml-6 w-40 md:w-48 mx-auto md:mx-[unset]"
             src={LOGO}
             alt="logo"
           />
@@ -113,11 +113,11 @@ const Header = () => {
                   onClick={signOutHandler}
                 >
                   <img
-                    className="rounded h-8 w-8 hidden md:block"
+                    className="rounded-[50%] md:rounded h-8 w-8"
                     src={userState?.photoURL}
                     alt="profile"
                   />
-                  <p>&nbsp;&nbsp;{userState?.displayName}</p>
+                  <p>&nbsp;{userState?.displayName}</p>
                   <span>(sign out)</span>
                 </button>
               </li>

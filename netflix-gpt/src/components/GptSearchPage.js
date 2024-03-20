@@ -10,11 +10,11 @@ const GptSearchPage = () => {
   return (
     <>
       <img
-        className="fixed max-w-none md:max-w-[100%] -mt-8 md:-mt-2"
+        className="fixed max-w-none md:max-w-[100%] md:-mt-2"
         src={LOGIN_BG}
         alt="background"
       />
-      <div className="gptPageContent w-full relative -mt-8 md:-mt-2">
+      <div className="gptPageContent w-full relative md:-mt-2">
         <GptSearchBar />
         <GptSearchSuggestions />
         {isMoviePop && <MoviePopUp />}
