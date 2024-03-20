@@ -21,6 +21,7 @@ const Login = () => {
   const password = useRef();
   const signInUpBtn = useRef();
   const [name, setName] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
 
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -125,6 +126,14 @@ const Login = () => {
     }
   };
 
+  const passwordShowHideToggler = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else {
+      setPasswordType("password");
+    }
+  };
+
   // returned JSX
   return (
     <div className=" overflow-y-hidden">
@@ -164,12 +173,20 @@ const Login = () => {
           ref={email}
         />
         {/* password input  */}
-        <input
-          className="p-3 m-2 border rounded bg-slate-100"
-          type="password"
-          placeholder="password"
-          ref={password}
-        />
+        <div className="relative">
+          <input
+            className="p-3 m-2 border rounded bg-slate-100 w-[95%] md:w-[96%]"
+            type={passwordType}
+            placeholder="password"
+            ref={password}
+          />
+          <span
+            onClick={passwordShowHideToggler}
+            className="absolute top-[1.4rem] right-[1.5rem] cursor-pointer"
+          >
+            👁‍🗨
+          </span>
+        </div>
         {/* error message  */}
         {errorMessage && (
           <p className=" text-red-600 font-medium py-3 mx-3">{errorMessage}</p>
