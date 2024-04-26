@@ -263,14 +263,3 @@ Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilisi
   - Search bar
   - Movie suggestion via AI on search
 
-# Golden Rules To Follow / Gyaan
-
-- Whenever handing with forms with many fields consider using external libraries like Formik
-
-- In general whenever working on a piece of code always check if you can use any library for it, plenty of them are available , reusing code + Faster development
-
-- In react we might notice that while developing our app, a lot of our actions like api calls, actions dispatched component renders happens two times ? why ? The answer is strict mode, the newer versions of create-react-app binds our central app inside strict mode(check in index.js), so strict mode is checking thing twice, it's an react's internal thing. [Note : only in dev it will happen, when you will create a prod build it won't happen]
-
-- keep components clean and neat whatever code can be extracted extract them by creating custom hooks, for other components
-
-- plan before writing a component and try to break it down into smaller components [modular coding]
