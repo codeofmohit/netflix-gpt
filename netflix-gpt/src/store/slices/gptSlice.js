@@ -21,6 +21,10 @@ const gptSearch = createSlice({
     searchBtnClicked: (state) => {
       state.isSearchBtnClicked = true;
     },
+    clearGptMovies: (state) => {
+      state.movieResults = null;
+      state.movieNames = null;
+    },
   },
 });
 
@@ -29,5 +33,6 @@ export const {
   addGptSuggestedMovies,
   addSearchedMoviesResults,
   searchBtnClicked,
+  clearGptMovies,
 } = gptSearch.actions;
 export default gptSearch.reducer;

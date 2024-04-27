@@ -5,6 +5,8 @@ const GptSearchSuggestions = () => {
   const movieSuggestions = useSelector(
     (state) => state.gptSearch?.movieResults
   );
+
+  const movieNames = useSelector((state) => state.gptSearch?.movieNames);
   const listTitles = useSelector((state) => state.gptSearch?.movieNames);
 
   const isSearchBtnClicked = useSelector(
@@ -30,16 +32,25 @@ const GptSearchSuggestions = () => {
               );
             })
           ) : (
-            <div className="text-white text-center p-4">
-              <h1 className="text-xl p-1 font-bold">
-                It seems like you're on JIO
-              </h1>
-              <p className="text-center font-bold py-2">
-                Hi There! it seems like you're on JIO network, in this search
-                feature, we are making use of TMDB api(s), which are highly
-                unstable on JIO network. Please do change your network or try
-                connecting via a VPN, such as VeePN. Thanks!
-              </p>
+            <div className="flex flex-col text-white gap-4 text-center">
+              {movieNames ? (
+                <div className="chatGpt-movieTitles">
+                  <h1 className="font-bold text-2xl text-red-700 my-2 py-4 bg-white">
+                    Movies recommended by ChatGPT
+                  </h1>
+                  {movieNames?.map((each, index) => {
+                    return (
+                      <div key={index} className="movieName font-bold text-2xl">
+                        {`${index + 1} - ${each}`}
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <>
+                  <h1>Suggestions from ai are loading...</h1>
+                </>
+              )}
             </div>
           )}
         </>

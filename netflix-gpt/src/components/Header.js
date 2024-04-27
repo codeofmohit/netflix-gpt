@@ -10,6 +10,7 @@ import { addSelectedLang } from "../store/slices/multiLangSlice";
 import LOGO from "../constants/codeofmohit_logo.png";
 import { useEffect, useState } from "react";
 import { multiLangOptions } from "../constants/constants";
+import { clearGptMovies } from "../store/slices/gptSlice";
 
 const Header = () => {
   // user from redux store (will use for using properties), initial value of state
@@ -60,6 +61,8 @@ const Header = () => {
   // function to handle gptSearch
   const gptSearchBtnHandler = () => {
     dispatch(gptSearchBtnToggler());
+    // dispatch a reducer to clear movies suggestions
+    dispatch(clearGptMovies());
   };
 
   const multiLangSelectHandler = (e) => {
