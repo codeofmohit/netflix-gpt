@@ -2,6 +2,8 @@
 
 Cloning Front-end of Netflix using React/Redux along with Firebase, Also utilising Open AI GPT for empowering various features.
 
+[🚀 NetflixGPT Project Live Link 🚀](https://fateflix-codeofmohit.web.app/)
+
 # Design Documentation (rough flow - Dev Only)
 
 - boilerPlate setup using create-react-app ✅
